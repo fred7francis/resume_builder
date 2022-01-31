@@ -10,7 +10,7 @@ const defaultValues = {
 
 const Company = ({ index, item, addItem, deleteItem, editItem, mode }) => {
     const [company, setCompany] = useState(item || { id: nanoid(), ...defaultValues });
-    const [isEdit, setIsEdit] = useState(mode === "create");
+    const [isEdit, setIsEdit] = useState(mode === "add");
 
     const handleOnChange = event => {
         const { name, value } = event.target;
@@ -27,7 +27,7 @@ const Company = ({ index, item, addItem, deleteItem, editItem, mode }) => {
         <div className="border p-2">
             <div className="d-flex justify-content-between">
                 <span className="h5 font-weight-bolder">Company {index + 1}</span>
-                {(mode === "edit") && (
+                {(["edit", "create"].includes(mode)) && (
                     <div>
                         <button className="mr-2 btn btn-danger" onClick={() => deleteItem(company.id)}>
                             Delete
@@ -73,7 +73,7 @@ const Company = ({ index, item, addItem, deleteItem, editItem, mode }) => {
                     />
                 </div>
             </div>
-            {(mode === "create") && (
+            {(mode === "add") && (
                 <div className="py-2">
                     <button className="mr-2 btn btn-primary" onClick={() => addItem(company)}>
                         Add Company
