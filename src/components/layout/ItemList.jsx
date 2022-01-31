@@ -50,7 +50,7 @@ const ItemList = ({ name, mode, data, onChange, passedItem }) => {
                 add && <PassedItem
                     index={data.length}
                     addItem={addItem}
-                    mode={"create"}
+                    mode={"add"}
                 />
             }
         </div>

@@ -1,19 +1,13 @@
 import React from 'react';
-import { Container } from 'react-bootstrap';
 import Navbar from './components/layout/Navbar';
-import Home from './components/pages/Home';
-import CreateResume from './components/pages/CreateResume';
-
-
+import AppRoutes from './components/pages/AppRoutes';
 
 const App = () => {
   return <>
     <Navbar />
-    <Container>
-      {/* <Home /> */}
-      <CreateResume />
-    </Container>
-
+    <div className="container">
+      <AppRoutes />
+    </div>
   </>;
 };
 
