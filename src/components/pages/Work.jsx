@@ -1,7 +1,10 @@
 import React, { useEffect } from 'react';
+
 import { connect } from 'react-redux';
-import { useParams } from 'react-router-dom';
 import { setCurrent } from '../../actions/resumeActions';
+
+import { useParams } from 'react-router-dom';
+
 import Resume from "./Resume"
 import Loader from '../layout/Loader';
 import NotFound from './NotFound';

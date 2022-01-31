@@ -32,7 +32,6 @@ const ItemList = ({ name, mode, data, onChange, passedItem }) => {
                 data.map((item, index) => (
                     <PassedItem
                         key={item.id}
-                        index={index}
                         item={item}
                         deleteItem={deleteItem}
                         editItem={editItem}
@@ -45,14 +44,7 @@ const ItemList = ({ name, mode, data, onChange, passedItem }) => {
                 </div>
             )
             }
-
-            {
-                add && <PassedItem
-                    index={data.length}
-                    addItem={addItem}
-                    mode={"add"}
-                />
-            }
+            {add && <PassedItem addItem={addItem} mode={"add"} />}
         </div>
     );
 };

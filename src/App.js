@@ -1,12 +1,10 @@
 import React, { useEffect } from 'react';
+
 import Navbar from './components/layout/Navbar';
 import AppRoutes from './components/pages/AppRoutes';
 import { Provider } from 'react-redux';
 import store from './store';
 import dummy from './components/data/dummy.json'
-import { nanoid } from 'nanoid';
-
-
 
 const App = () => {
   useEffect(() => {

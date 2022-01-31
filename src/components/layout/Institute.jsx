@@ -8,7 +8,7 @@ const defaultValues = {
     year: ""
 };
 
-const Institute = ({ index, item, addItem, deleteItem, editItem, mode }) => {
+const Institute = ({ item, addItem, deleteItem, editItem, mode }) => {
     const [institute, setInstitute] = useState(item || { id: nanoid(), ...defaultValues });
     const [isEdit, setIsEdit] = useState(mode === "add");
 

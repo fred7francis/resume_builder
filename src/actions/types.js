@@ -5,5 +5,3 @@ export const SET_CURRENT = 'SET_CURRENT';
 export const UPDATE_RESUME = 'UPDATE_RESUME';
 export const SET_LOADING = 'SET_LOADING';
 export const RESUMES_ERROR = 'RESUMES_ERROR';
-
-
