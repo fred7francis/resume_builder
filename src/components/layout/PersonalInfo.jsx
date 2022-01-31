@@ -1,7 +1,6 @@
 import React from 'react';
 import Feild from './Feild';
 
-
 const PersonalInfo = ({ mode, personalInfo, onChange }) => {
 
     const handleOnChange = event => {

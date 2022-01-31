@@ -1,12 +1,15 @@
 import React, { useEffect, useState, useRef } from 'react';
+
 import { connect } from 'react-redux';
+import { addResume, updateResume, deleteResume } from '../../actions/resumeActions';
+
 import ItemList from "../layout/ItemList";
 import Institute from "../layout/Institute"
 import Company from "../layout/Company"
 import PersonalInfo from '../layout/PersonalInfo';
 import Skills from '../layout/Skills';
+
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { addResume, updateResume, deleteResume } from '../../actions/resumeActions';
 import { nanoid } from 'nanoid';
 
 const defaultPersonalInfo = {

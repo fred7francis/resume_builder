@@ -1,11 +1,12 @@
 import React, { useEffect } from 'react';
+
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 import { getResumes } from '../../actions/resumeActions';
+
+import { Link } from 'react-router-dom';
+
 import Loader from '../layout/Loader';
 import Card from '../layout/Card';
-
-
 
 const Home = ({ resume: { resumes, loading }, getResumes }) => {
 
@@ -31,6 +32,9 @@ const Home = ({ resume: { resumes, loading }, getResumes }) => {
                 </Link>))
             )}
         </div>
+        <nav className="navbar fixed-bottom navbar-light bg-light mt-5 justify-content-center ">
+            <a href="https://github.com/fred7francis/resume_builder/">GitHub Repository</a>
+        </nav>
     </div>;
 };
 

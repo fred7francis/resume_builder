@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+
 import { nanoid } from "nanoid";
 import Feild from "./Feild";
+
 
 const defaultValues = {
     name: "",
@@ -8,7 +10,7 @@ const defaultValues = {
     year: ""
 };
 
-const Company = ({ index, item, addItem, deleteItem, editItem, mode }) => {
+const Company = ({ item, addItem, deleteItem, editItem, mode }) => {
     const [company, setCompany] = useState(item || { id: nanoid(), ...defaultValues });
     const [isEdit, setIsEdit] = useState(mode === "add");
 

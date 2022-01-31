@@ -8,14 +8,11 @@ import {
   RESUMES_ERROR,
 } from './types';
 
-const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
-
 
 // Get Resumes from localStorage
 export const getResumes = () => dispatch => {
   try {
     setLoading();
-
     const data = JSON.parse(localStorage.getItem("resumeBuilder"));
 
     dispatch({
@@ -34,7 +31,6 @@ export const getResumes = () => dispatch => {
 export const addResume = resume => (dispatch, getState) => {
   try {
     setLoading();
-
     localStorage.setItem("resumeBuilder", JSON.stringify([...getState().resume.resumes, resume]));
 
     dispatch({
@@ -53,7 +49,6 @@ export const addResume = resume => (dispatch, getState) => {
 export const deleteResume = id => (dispatch, getState) => {
   try {
     setLoading();
-
     localStorage.setItem("resumeBuilder", JSON.stringify(getState().resume.resumes.filter(resume => resume.id !== id)));
 
     dispatch({
@@ -72,10 +67,7 @@ export const deleteResume = id => (dispatch, getState) => {
 export const updateResume = resume => (dispatch, getState) => {
   try {
     setLoading();
-
-    localStorage.setItem("resumeBuilder", JSON.stringify(getState().resume.resumes.map(x =>
-      x.id === resume.id ? resume : x
-    )));
+    localStorage.setItem("resumeBuilder", JSON.stringify(getState().resume.resumes.map(x => x.id === resume.id ? resume : x)));
 
     dispatch({
       type: UPDATE_RESUME,
@@ -90,12 +82,10 @@ export const updateResume = resume => (dispatch, getState) => {
 };
 
 // Set current resume
-
 export const setCurrent = id => dispatch => {
   setLoading();
-
   let res = JSON.parse(localStorage.getItem("resumeBuilder")).find(resume => resume.id === id);
-  // console.log(res.personalInfo.name);
+
   if (!res)
     res = "NOT_FOUND"
 
