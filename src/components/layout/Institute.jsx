@@ -23,22 +23,12 @@ const Institute = ({ index, item, addItem, deleteItem, editItem, mode }) => {
         setIsEdit(isEdit => !isEdit)
     }
 
-    return (
-        <div className="border p-2">
-            <div className="d-flex justify-content-between">
-                <span className="h5 font-weight-bolder">Institute {index + 1}</span>
-                {(["edit", "create"].includes(mode)) && (
-                    <div>
-                        <button className="mr-2 btn btn-danger" onClick={() => deleteItem(institute.id)}>
-                            Delete
-                        </button>
-                        <button className="btn btn-primary" onClick={handleClick}>
-                            {isEdit ? "Save" : "Edit"}
-                        </button>
-                    </div>
-                )}
-            </div>
+    const handleSubmit = (e) => {
+        e.preventDefault();
+    }
 
+    return (
+        <form className="border p-2" onSubmit={handleSubmit}>
             <div className="row">
                 <div className="col">
                     <Feild
@@ -69,23 +59,35 @@ const Institute = ({ index, item, addItem, deleteItem, editItem, mode }) => {
                         onChange={handleOnChange}
                         placeholder="Year"
                         type="number"
-                        required={true}
                     />
                 </div>
             </div>
+            <div className="d-flex justify-content-end">
+                {(mode === "add") && (
+                    <>
+                        <button className="mr-2 btn btn-primary" onClick={() => addItem(institute)}
+                            disabled={!(institute.name && institute.degree && institute.year)}>
+                            Add Institute
+                        </button>
+                        <button className=" btn btn-danger" onClick={() => addItem("-")}>
+                            Cancel
+                        </button>
+                    </>
 
-            {(mode === "add") && (
-                <div className="py-2">
-                    <button className="mr-2 btn btn-primary" onClick={() => addItem(institute)}>
-                        Add Institute
-                    </button>
-                    <button className=" btn btn-danger" onClick={() => addItem("-")}>
-                        Cancel
-                    </button>
-                </div>
-            )}
-
-        </div>
+                )}
+                {(["edit", "create"].includes(mode)) && (
+                    <>
+                        <button className="btn btn-primary mr-2" onClick={handleClick}
+                            disabled={!(institute.name && institute.degree && institute.year) && isEdit}>
+                            {isEdit ? "Save" : "Edit"}
+                        </button>
+                        <button className="btn btn-danger" onClick={() => deleteItem(institute.id)}>
+                            Delete
+                        </button>
+                    </>
+                )}
+            </div>
+        </form>
     );
 };
 export default Institute;
