@@ -15,7 +15,8 @@ const Work = ({ resume: { current, loading }, setCurrent }) => {
 
     useEffect(() => {
         setCurrent(params.id)
-    }, []);
+    }, [params, setCurrent]);
+
 
     if (loading || current === null) {
         return <Loader />;
