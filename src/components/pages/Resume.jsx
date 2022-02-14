@@ -42,7 +42,6 @@ const Resume = ({ resume, addResume, updateResume, deleteResume }) => {
         if (mode === "edit")
             updateResume({ id: url_split.current[2], personalInfo, institutionList, experienceList, skillList })
         navigate(`/${mode === "edit" ? "view" : "edit"}/${url_split.current[2]}`)
-        console.log(mode);
     }
 
     const handleCreate = () => {
